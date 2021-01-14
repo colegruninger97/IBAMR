@@ -1,0 +1,14 @@
+*.d
+*.e
+*.log
+*.o
+Makefile
+main*d
+viz*
+.*.swp
+.DS_Store
+restart*
+*.vertex
+*.spring
+*.beam
+*.anchor

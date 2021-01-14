@@ -1,0 +1,1525 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"LIB",
+				"LIBMESH_VERSION_LESS_THAN(major, minor, micro)"
+			],
+			[
+				"quad",
+				"quadrature_key_type"
+			],
+			[
+				"d_dyn",
+				"d_dynamic_pressure_part\t  std::vector<bool>"
+			],
+			[
+				"t",
+				"transpose() const\t  TypeTensor<double>"
+			],
+			[
+				"g",
+				"getLocationIndex() const\t  int"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
+				"getTouch",
+				"getTouchesPeriodicBoundary(int axis, int upperlower) const\t  bool"
+			],
+			[
+				"multi",
+				"multi_array/"
+			],
+			[
+				"d_static_pressure_p",
+				"d_static_pressure_proj_type\t  std::vector<PressureProjectionType>"
+			],
+			[
+				"d_static",
+				"d_static_pressure_vol_energy_deriv_fcn\t  std::vector<VolumetricEnergyDerivativeFcn>"
+			],
+			[
+				"d_static_pressure_",
+				"d_static_pressure_vol_energy_deriv_fcn\t  std::vector<VolumetricEnergyDerivativeFcn>"
+			],
+			[
+				"d_static_pressure",
+				"d_static_pressure_proj_type\t  std::vector<PressureProjectionType>"
+			],
+			[
+				"FEM",
+				"FEMechanicsBase\t  \n\"ibamr/FEMechanicsBase.h\""
+			],
+			[
+				"d_static_press",
+				"d_static_pressure_part\t  std::vector<bool>"
+			],
+			[
+				"dof",
+				"dof_indices_sz\t  const unsigned int"
+			],
+			[
+				"PRESSURE_",
+				"PRESSURE_SYSTEM_NAME\t  const std::string"
+			],
+			[
+				"PRESS",
+				"PRESSURE_SYSTEM_NAME\t  const std::string"
+			],
+			[
+				"FEMec",
+				"IBAMR::FEMechanicsExplicitIntegrator"
+			],
+			[
+				"getDoubleArray",
+				"getDoubleArray(const std::string &key, double *data, const int nelements)\t  void"
+			],
+			[
+				"partitionerty",
+				"LibmeshPartitionerType\t  \n\"ibamr/ibamr_enums.h\""
+			],
+			[
+				"j",
+				"J"
+			],
+			[
+				"d_quad",
+				"d_default_quad_order_stress\t  std::vector<libMesh::Order>"
+			],
+			[
+				"Quadr",
+				"QuadratureType\t  \n\"libmesh/enum_quadrature_type.h\""
+			],
+			[
+				"ORDER",
+				"INVALID_ORDER\t  libMesh::Order\n\"libmesh/enum_order.h\""
+			],
+			[
+				"nodal",
+				"use_nodal_quadrature\t  const bool"
+			],
+			[
+				"FED",
+				"FEDataManager.h\""
+			],
+			[
+				"d_e",
+				"d_enable_logging\t  bool"
+			],
+			[
+				"logg",
+				"getLoggingEnabled() const\t  bool"
+			],
+			[
+				"ibtk",
+				"ibtk_utilities.h\""
+			],
+			[
+				"cons",
+				"consistent_mass_matrix\t  const bool"
+			],
+			[
+				"FEData",
+				"FEDataManager.h>"
+			],
+			[
+				"pes",
+				"petsc_linear_solver.h\""
+			],
+			[
+				"petsc_m",
+				"petsc_matrix.h\""
+			],
+			[
+				"petsc_",
+				"petsc_vector.h\""
+			],
+			[
+				"buildIB",
+				"buildIBGhostedDiagonalL2MassMatrix(const std::string &system_name)\t  libMesh::PetscVector<double> *"
+			],
+			[
+				"copy",
+				"copy(_Ip, _Ip, _Op)\t  _Op\n<algorithm>"
+			],
+			[
+				"l",
+				"linfty_norm() const\t  Real"
+			],
+			[
+				"U_rhs_",
+				"U_rhs_nodal_quadrature_vecs\t  std::vector<PetscVector<double> *>"
+			],
+			[
+				"vec_copy",
+				"batch_vec_copy(const std::vector<libMesh::PetscVector<double> *> &x_vecs, const std::vector<libMesh::PetscVector<double> *> &y_vecs)\t  void\n\"ibtk/libmesh_utilities.h\""
+			],
+			[
+				"SCATTER",
+				"SCATTER_FORWARD\t  ScatterMode\n\"petscvec.h\""
+			],
+			[
+				"VecGhost",
+				"VecGhostUpdateBegin(Vec, InsertMode, ScatterMode)\t  PetscErrorCode\n\"petscvec.h\""
+			],
+			[
+				"use",
+				"use_nodal_quadrature\t  bool"
+			],
+			[
+				"dim",
+				"mesh_dimension() const\t  unsigned int"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 13085,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "input3d.N=128",
+			"settings":
+			{
+				"buffer_size": 7799,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "generate_carpet.m",
+			"settings":
+			{
+				"buffer_size": 2651,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"IBAMR",
+					""
+				],
+				[
+					"IBAMR",
+					"j8"
+				],
+				[
+					"IBAMR",
+					"clean"
+				],
+				[
+					"IBAMR",
+					"examples"
+				],
+				[
+					"IBAMR",
+					"examples j8"
+				]
+			],
+			[
+				"IBAMR",
+				"j8"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"wrap",
+				"DoxyDoxygen: Comment Wrap"
+			],
+			[
+				"next",
+				"Git Conflict Resolver: Find Next Conflict"
+			],
+			[
+				"ours",
+				"Git Conflict Resolver: Keep Ours"
+			],
+			[
+				"wr",
+				"DoxyDoxygen: Comment Wrap"
+			],
+			[
+				"wra",
+				"DoxyDoxygen: Comment Wrap"
+			],
+			[
+				"theirs",
+				"Git Conflict Resolver: Keep Theirs"
+			],
+			[
+				"thei",
+				"Git Conflict Resolver: Keep Theirs"
+			],
+			[
+				"ne",
+				"Git Conflict Resolver: Find Next Conflict"
+			],
+			[
+				"nex",
+				"Git Conflict Resolver: Find Next Conflict"
+			],
+			[
+				"lsp re",
+				"LSP: Restart Servers"
+			],
+			[
+				"lsp",
+				"LSP: Restart Servers"
+			],
+			[
+				"comm",
+				"DoxyDoxygen: Comment Wrap"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"keep",
+				"Git Conflict Resolver: Keep Ours"
+			],
+			[
+				"git",
+				"Git Conflict Resolver: Find Next Conflict"
+			],
+			[
+				"k",
+				"Git Conflict Resolver: Keep Ours"
+			],
+			[
+				"n",
+				"Snippet: Namespace"
+			],
+			[
+				"gitnext",
+				"Git Conflict Resolver: Find Next Conflict"
+			],
+			[
+				"convert ",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"paccontrol",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"package control",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"preferences dox",
+				"Preferences: DoxyDoxygen Settings"
+			],
+			[
+				"lsp ",
+				"Preferences: LSP Settings"
+			],
+			[
+				"lsp diag",
+				"LSP: Toggle Diagnostics Panel"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"clang",
+				"Clang Format: Format Selection"
+			],
+			[
+				"lsp restar",
+				"LSP: Restart Servers"
+			],
+			[
+				"term",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"preferences terminus",
+				"Preferences: Terminus Settings"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in View"
+			],
+			[
+				"terminus op",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"packag install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control remove pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"package remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 136.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/boyceg/code/IBAMR/src/IB/FEMechanicsBase.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/IBFEMethod.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/FEMechanicsExplicitIntegrator.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEProjector.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/FEProjector.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/IBFESurfaceMethod.cpp",
+		"/Users/boyceg/code/IBAMR/include/ibamr/IBFEMethod.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/FEDataManager.cpp",
+		"/Users/boyceg/code/IBAMR/tests/IBFE/explicit_ex5.cpp",
+		"/Users/boyceg/code/IBAMR/tests/IBTK/jacobian_calc_01.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/IMPMethod.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/libmesh_utilities.h",
+		"/Users/boyceg/code/IBAMR/tests/IBTK/bounding_boxes_01.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/utilities/libmesh_utilities.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/FEValues.cpp",
+		"/Users/boyceg/code/IBAMR/tests/IBFE/explicit_ex0.cpp",
+		"/Users/boyceg/code/IBAMR/tests/IBFE/explicit_ex1.cpp",
+		"/Users/boyceg/code/IBAMR/tests/IBFE/explicit_ex4.cpp",
+		"/Users/boyceg/code/IBAMR/tests/IBTK/mapping_01.cpp",
+		"/Users/boyceg/code/IBAMR/tests/IBTK/multilevel_fe_01.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBFE/explicit/ex3/example.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/QuadratureCache.h",
+		"/Users/boyceg/code/IBAMR/examples/IBFE/explicit/ex4/example.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBFE/explicit/ex0/example.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBFE/explicit/ex1/example.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEDataManager.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/FEMapping.cpp",
+		"/Users/boyceg/code/IBAMR/tests/tests.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEMappingCache.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEMapping.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FECache.h",
+		"/Users/boyceg/code/IBAMR/include/ibamr/FEMechanicsBase.h",
+		"/Users/boyceg/code/IBAMR/ibtk/lib/Makefile.am",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/private/QuadratureCache-inl.h",
+		"/Users/boyceg/code/IBAMR/examples/IB/explicit/ex2/example.cpp",
+		"/Users/boyceg/code/IBAMR/tests/fe_mechanics/fe_mechanics_ex0.cpp",
+		"/Users/boyceg/code/IBAMR/include/ibamr/FEMechanicsExplicitIntegrator.h",
+		"/Users/boyceg/code/IBAMR/tests/Makefile.am",
+		"/Users/boyceg/code/IBAMR/examples/fe_mechanics/ex0/example.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/PhysicalBoundaryUtilities.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/coarsen_ops/fortran/rt0coarsen3d.f.m4",
+		"/Users/boyceg/code/IBAMR/ibtk/src/refine_ops/CartSideDoubleRT0Refine.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/coarsen_ops/CartSideDoubleRT0Coarsen.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/coarsen_ops/fortran/rt0coarsen2d.f.m4",
+		"/Users/boyceg/code/IBAMR/ibtk/src/boundary/physical_boundary/PhysicalBoundaryUtilities.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/wrappers/PETScSAMRAIVectorReal.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/fortran/lagrangian_interaction2d.f.m4",
+		"/Users/boyceg/code/IBAMR/src/IB/IBPDMethod.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/IBPDForceGen.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBPD/explicit/ex0/main.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBPD/explicit/ex1/main.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBPD/explicit/ex2/main.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBFE/explicit/ex2/example.cpp",
+		"/Users/boyceg/code/IBAMR/include/ibamr/IBMethod.h",
+		"/Users/boyceg/code/IBAMR/src/IB/IBMethod.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IB/explicit/ex0/example.cpp",
+		"/Users/boyceg/code/IBAMR/lib/Makefile.am",
+		"/Users/boyceg/code/IBAMR/include/ibamr/IBPDMethod.h",
+		"/Users/boyceg/code/IBAMR/include/ibamr/IBPDForceGen.h",
+		"/Users/boyceg/code/IBAMR/examples/IBPD/explicit/ex0/generate_membrane3d.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBPD/explicit/ex1/generate_sheet3d.cpp",
+		"/Users/boyceg/code/IBAMR/examples/IBPD/explicit/ex2/generate_failed_sheet3d.cpp",
+		"/Users/boyceg/code/IBAMR/examples/Makefile.am",
+		"/Users/boyceg/code/IBAMR/configure.ac",
+		"/Users/boyceg/code/IBAMR/examples/CIB/ex4/example.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/IBHierarchyIntegrator.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/IBExplicitHierarchyIntegrator.cpp",
+		"/Users/boyceg/code/IBAMR/src/navier_stokes/INSHierarchyIntegrator.cpp",
+		"/Users/boyceg/code/IBAMR/src/IB/IBTargetPointForceSpec.cpp",
+		"/Users/boyceg/code/IBAMR/include/ibamr/private/IBTargetPointForceSpec-inl.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/refine_ops/fortran/cart_side_refine3d.f.m4",
+		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/PoissonFACPreconditioner.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/CCPoissonLevelRelaxationFACOperator.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/PoissonFACPreconditionerStrategy.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/LDataManager.cpp",
+		"/Users/boyceg/code/IBAMR/include/ibamr/IBHierarchyIntegrator.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/SCPoissonPointRelaxationFACOperator.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/CCPoissonPointRelaxationFACOperator.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/FACPreconditioner.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/utilities/LibMeshSystemIBVectors.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/src/utilities/LibMeshSystemVectors.cpp",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory",
+		"/Users/boyceg/code/IBAMR/ibamr.sublime-project",
+		"/Users/boyceg/code/IBAMR/include/ibamr/ibamr_enums.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/CoarseFineBoundaryRefinePatchStrategy.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/CartSideDoubleRT0Refine.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/refine_ops/fortran/cart_side_refine2d.f.m4",
+		"/Users/boyceg/code/IBAMR/src/navier_stokes/INSStaggeredHierarchyIntegrator.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/ibtk_enums.h",
+		"/Users/boyceg/code/IBAMR/examples/fe_mechanics/ex0/input3d",
+		"/Users/boyceg/code/IBAMR/examples/fe_mechanics/ex0/input2d",
+		"/Users/boyceg/code/IBAMR/examples/ConstraintIB/falling_sphere/ForceProjector.h",
+		"/Users/boyceg/code/IBAMR/examples/fe_mechanics/Makefile.am",
+		"/Users/boyceg/code/IBAMR/examples/fe_mechanics/ex0/Makefile.am",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEDataInterpolation.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/utilities/HierarchyIntegrator.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/HierarchyIntegrator.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEValues.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/LibMeshSystemVectors.h",
+		"/Users/boyceg/code/IBAMR/ibtk/contrib/eigen/Eigen/src/Core/Visitor.h",
+		"/Users/boyceg/code/IBAMR/examples/fe_mechanics/ex0/input2d_test",
+		"/Users/boyceg/code/IBAMR/include/ibamr/ExplicitFEMechanicsIntegrator.h",
+		"/Users/boyceg/code/IBAMR/src/IB/ExplicitFEMechanicsIntegrator.cpp",
+		"/Users/boyceg/Downloads/tmp/stress.C",
+		"/Users/boyceg/Downloads/tmp/stress",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/FEDataInterpolation.cpp",
+		"/Users/boyceg/sfw/libmesh/master/src/base/dof_map_constraints.C",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/dof_map.h",
+		"/Users/boyceg/code/IBAMR/include/ibamr/IBStrategy.h",
+		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/FEDataIBInterpolation.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEDataIBInterpolation.h",
+		"/Users/boyceg/code/IBAMR/src/IB/IBFECentroidPostProcessor.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/LibMeshSystemIBVectors.h",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/FEData.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/parallel_object.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/reference_counted_object.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/petsc_linear_solver.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/libmesh_common.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/enum_subset_solve_mode.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/linear_solver.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/libmesh.h",
+		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/timpi/communicator.h",
+		"/Users/boyceg/code/IBAMR/include/ibamr/INSStaggeredHierarchyIntegrator.h",
+		"/Users/boyceg/code/IBAMR/include/ibamr/INSHierarchyIntegrator.h",
+		"/Users/boyceg/code/IBAMR/tests/IBFE/interpolate_velocity_01.cpp",
+		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/ibtk_utilities.h",
+		"/Users/boyceg/code/IBAMR/ibtk/contrib/eigen/unsupported/Eigen/src/BVH/KdBVH.h",
+		"/Users/boyceg/code/LV-phantom/FSI_model/main.cpp"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 136.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"NULL"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"nullptr"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13085,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4916,
+								4916
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1345.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "input3d.N=128",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7799,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4995,
+								4995
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3274.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "generate_carpet.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2651,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Matlab/Matlab.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.diagnostics":
+	{
+		"height": 405.0
+	},
+	"output.exec":
+	{
+		"height": 311.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "IBAMR",
+	"project": "redbud.sublime-project",
+	"replace":
+	{
+		"height": 92.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"femecha",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"fe",
+				"src/IB/FEMechanicsExplicitIntegrator.cpp"
+			],
+			[
+				"ibfemethod",
+				"src/IB/IBFEMethod.cpp"
+			],
+			[
+				"feproj",
+				"ibtk/src/lagrangian/FEProjector.cpp"
+			],
+			[
+				"ibfem",
+				"include/ibamr/IBFEMethod.h"
+			],
+			[
+				"femech",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"femechanics",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"feproject",
+				"ibtk/include/ibtk/FEProjector.h"
+			],
+			[
+				"fedatamanager",
+				"ibtk/src/lagrangian/FEDataManager.cpp"
+			],
+			[
+				"jacobian_cal",
+				"tests/IBTK/jacobian_calc_01.cpp"
+			],
+			[
+				"explicit_ex5",
+				"tests/IBFE/explicit_ex5.cpp"
+			],
+			[
+				"impmethod",
+				"src/IB/IMPMethod.cpp"
+			],
+			[
+				"ibfesur",
+				"src/IB/IBFESurfaceMethod.cpp"
+			],
+			[
+				"libmesh_",
+				"ibtk/include/ibtk/libmesh_utilities.h"
+			],
+			[
+				"bounding_boxes_01.cpp",
+				"tests/IBTK/bounding_boxes_01.cpp"
+			],
+			[
+				"examples/ibfe/ex3/exa",
+				"examples/IBFE/explicit/ex3/example.cpp"
+			],
+			[
+				"multilevel_fe_01",
+				"tests/IBTK/multilevel_fe_01.cpp"
+			],
+			[
+				"mapping_01.cpp",
+				"tests/IBTK/mapping_01.cpp"
+			],
+			[
+				"tests/ibfe/explicit",
+				"tests/IBFE/explicit_ex4.cpp"
+			],
+			[
+				"tests/ibfe/explici",
+				"tests/IBFE/explicit_ex1.cpp"
+			],
+			[
+				"fevalues",
+				"ibtk/src/lagrangian/FEValues.cpp"
+			],
+			[
+				"quadrature",
+				"ibtk/include/ibtk/QuadratureCache.h"
+			],
+			[
+				"ibfe/ex4/example.cpp",
+				"examples/IBFE/explicit/ex4/example.cpp"
+			],
+			[
+				"ibfeex1/example.cpp",
+				"examples/IBFE/explicit/ex1/example.cpp"
+			],
+			[
+				"ibfe/explicit/ex0/exam",
+				"examples/IBFE/explicit/ex0/example.cpp"
+			],
+			[
+				"limesh_u",
+				"ibtk/src/utilities/libmesh_utilities.cpp"
+			],
+			[
+				"fedata",
+				"ibtk/include/ibtk/FEDataManager.h"
+			],
+			[
+				"libmesh_utili",
+				"ibtk/src/utilities/libmesh_utilities.cpp"
+			],
+			[
+				"fedataman",
+				"ibtk/include/ibtk/FEDataManager.h"
+			],
+			[
+				"fedatam",
+				"ibtk/src/lagrangian/FEDataManager.cpp"
+			],
+			[
+				"libmesh_u",
+				"ibtk/include/ibtk/libmesh_utilities.h"
+			],
+			[
+				"femappingcache",
+				"ibtk/include/ibtk/FEMappingCache.h"
+			],
+			[
+				"quad",
+				"ibtk/include/ibtk/QuadratureCache.h"
+			],
+			[
+				"ibtk/lib/make",
+				"ibtk/lib/Makefile.am"
+			],
+			[
+				"fecach",
+				"ibtk/include/ibtk/FECache.h"
+			],
+			[
+				"ibtk/lib",
+				"ibtk/lib/Makefile.am"
+			],
+			[
+				"quadraturecache",
+				"ibtk/include/ibtk/private/QuadratureCache-inl.h"
+			],
+			[
+				"libmeshutilities",
+				"ibtk/include/ibtk/libmesh_utilities.h"
+			],
+			[
+				"quadrat",
+				"ibtk/include/ibtk/QuadratureCache.h"
+			],
+			[
+				"fedatamanger",
+				"ibtk/src/lagrangian/FEDataManager.cpp"
+			],
+			[
+				"feexplicit",
+				"src/IB/FEMechanicsExplicitIntegrator.cpp"
+			],
+			[
+				"femcehanics",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"femechanicsbase.h",
+				"include/ibamr/FEMechanicsBase.h"
+			],
+			[
+				"examples/explicit/ex2/examp",
+				"examples/IB/explicit/ex2/example.cpp"
+			],
+			[
+				"examples/explicit/ex1/example.cpp",
+				"examples/IBFE/explicit/ex1/example.cpp"
+			],
+			[
+				"examples/ibfe/explicit/ex0/example",
+				"examples/IBFE/explicit/ex0/example.cpp"
+			],
+			[
+				"ibremethod.h",
+				"include/ibamr/IBFEMethod.h"
+			],
+			[
+				"femechanicsex0.cpp",
+				"tests/fe_mechanics/fe_mechanics_ex0.cpp"
+			],
+			[
+				"femechanicsbase.cpp",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"fe_mechanics/ex",
+				"examples/fe_mechanics/ex0/example.cpp"
+			],
+			[
+				"fe_mechanics_ex0.cpp",
+				"tests/fe_mechanics/fe_mechanics_ex0.cpp"
+			],
+			[
+				"tests/makefile.am",
+				"tests/Makefile.am"
+			],
+			[
+				"femechanicsexpl",
+				"src/IB/FEMechanicsExplicitIntegrator.cpp"
+			],
+			[
+				"ibfemethod.cpp",
+				"src/IB/IBFEMethod.cpp"
+			],
+			[
+				"feexlicit",
+				"src/IB/FEMechanicsExplicitIntegrator.cpp"
+			],
+			[
+				"femechanicsbase",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"libmesh",
+				"ibtk/include/ibtk/libmesh_utilities.h"
+			],
+			[
+				"fedat",
+				"ibtk/src/lagrangian/FEDataManager.cpp"
+			],
+			[
+				"rt0refine",
+				"ibtk/src/refine_ops/CartSideDoubleRT0Refine.cpp"
+			],
+			[
+				"rt0coarsen3d.f",
+				"ibtk/src/coarsen_ops/fortran/rt0coarsen3d.f.m4"
+			],
+			[
+				"rt0coarsenf.m4",
+				"ibtk/src/coarsen_ops/fortran/rt0coarsen2d.f.m4"
+			],
+			[
+				"boundaryutili",
+				"ibtk/include/ibtk/PhysicalBoundaryUtilities.h"
+			],
+			[
+				"rt0coarsen",
+				"ibtk/src/coarsen_ops/CartSideDoubleRT0Coarsen.cpp"
+			],
+			[
+				"lag",
+				"ibtk/src/lagrangian/fortran/lagrangian_interaction2d.f.m4"
+			],
+			[
+				"femechanicsbas",
+				"include/ibamr/FEMechanicsBase.h"
+			],
+			[
+				"petscsamrai",
+				"ibtk/src/solvers/wrappers/PETScSAMRAIVectorReal.cpp"
+			],
+			[
+				"ibpdfor",
+				"src/IB/IBPDForceGen.cpp"
+			],
+			[
+				"ibpdmethod",
+				"src/IB/IBPDMethod.cpp"
+			],
+			[
+				"ibfe/explicit/ex2/ex",
+				"examples/IBFE/explicit/ex2/example.cpp"
+			],
+			[
+				"lib/Makefile.am",
+				"lib/Makefile.am"
+			],
+			[
+				"ib/explicit/ex2/e",
+				"examples/IB/explicit/ex2/example.cpp"
+			],
+			[
+				"examples/ib/explicit/ex0/ex",
+				"examples/IB/explicit/ex0/example.cpp"
+			],
+			[
+				"ibmethod.cpp",
+				"src/IB/IBMethod.cpp"
+			],
+			[
+				"ibpd",
+				"src/IB/IBPDMethod.cpp"
+			],
+			[
+				"ibpd.h",
+				"include/ibamr/IBPDForceGen.h"
+			],
+			[
+				"ibmethod",
+				"include/ibamr/IBMethod.h"
+			],
+			[
+				"examples/Makefile.am",
+				"examples/Makefile.am"
+			],
+			[
+				"configure.ac",
+				"configure.ac"
+			],
+			[
+				"cib/ex4/example.cpp",
+				"examples/CIB/ex4/example.cpp"
+			],
+			[
+				"projector.cpp",
+				"ibtk/src/lagrangian/FEProjector.cpp"
+			],
+			[
+				"ibtargetpoint",
+				"include/ibamr/private/IBTargetPointForceSpec-inl.h"
+			],
+			[
+				"inshierarchy.cpp",
+				"src/navier_stokes/INSHierarchyIntegrator.cpp"
+			],
+			[
+				"ibexplict",
+				"src/IB/IBExplicitHierarchyIntegrator.cpp"
+			],
+			[
+				"refine3d.f.m4",
+				"ibtk/src/refine_ops/fortran/cart_side_refine3d.f.m4"
+			],
+			[
+				"poissonfacstrat",
+				"ibtk/src/solvers/impls/PoissonFACPreconditionerStrategy.cpp"
+			],
+			[
+				"ccpoissonfac.cpp",
+				"ibtk/src/solvers/impls/CCPoissonLevelRelaxationFACOperator.cpp"
+			],
+			[
+				"poissonfac.cpp",
+				"ibtk/src/solvers/impls/PoissonFACPreconditioner.cpp"
+			],
+			[
+				"facstrategy.cpp",
+				"ibtk/src/solvers/impls/PoissonFACPreconditionerStrategy.cpp"
+			],
+			[
+				"facpreconditioner",
+				"ibtk/src/solvers/impls/FACPreconditioner.cpp"
+			],
+			[
+				"poissonfacoperator.cpp",
+				"ibtk/src/solvers/impls/CCPoissonPointRelaxationFACOperator.cpp"
+			],
+			[
+				"facoperator",
+				"ibtk/src/solvers/impls/SCPoissonPointRelaxationFACOperator.cpp"
+			],
+			[
+				"fedtamanager",
+				"ibtk/src/lagrangian/FEDataManager.cpp"
+			],
+			[
+				"ldatamanger",
+				"ibtk/src/lagrangian/LDataManager.cpp"
+			],
+			[
+				"ibhier.cpp",
+				"src/IB/IBHierarchyIntegrator.cpp"
+			],
+			[
+				"ibhier",
+				"include/ibamr/IBHierarchyIntegrator.h"
+			],
+			[
+				"ibfemethod.h",
+				"include/ibamr/IBFEMethod.h"
+			],
+			[
+				"libmeshsystemvectors",
+				"ibtk/src/utilities/LibMeshSystemVectors.cpp"
+			],
+			[
+				"libmeshsystem",
+				"ibtk/src/utilities/LibMeshSystemIBVectors.cpp"
+			],
+			[
+				"mechanicsexample.cpp",
+				"examples/fe_mechanics/ex0/example.cpp"
+			],
+			[
+				"feexplicit.cpp",
+				"src/IB/FEMechanicsExplicitIntegrator.cpp"
+			],
+			[
+				"febase",
+				"include/ibamr/FEMechanicsBase.h"
+			],
+			[
+				"feprojecto",
+				"ibtk/include/ibtk/FEProjector.h"
+			],
+			[
+				"femecahni",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"mechanisase",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"mechanicsexplicit",
+				"src/IB/FEMechanicsExplicitIntegrator.cpp"
+			],
+			[
+				"ibamr_en",
+				"include/ibamr/ibamr_enums.h"
+			],
+			[
+				"mechanicsexample",
+				"examples/fe_mechanics/ex0/example.cpp"
+			],
+			[
+				"physical",
+				"ibtk/src/boundary/physical_boundary/PhysicalBoundaryUtilities.cpp"
+			],
+			[
+				"rt0coarsen3d",
+				"ibtk/src/coarsen_ops/fortran/rt0coarsen3d.f.m4"
+			],
+			[
+				"include/refine.h",
+				"ibtk/include/ibtk/CoarseFineBoundaryRefinePatchStrategy.h"
+			],
+			[
+				"cart_side_refine2d.f.m4",
+				"ibtk/src/refine_ops/fortran/cart_side_refine2d.f.m4"
+			],
+			[
+				"insstaghierar",
+				"src/navier_stokes/INSStaggeredHierarchyIntegrator.cpp"
+			],
+			[
+				"rt0refine.",
+				"ibtk/src/refine_ops/CartSideDoubleRT0Refine.cpp"
+			],
+			[
+				"ibtk/lib/Make",
+				"ibtk/lib/Makefile.am"
+			],
+			[
+				"femechanicbase",
+				"src/IB/FEMechanicsBase.cpp"
+			],
+			[
+				"feprojec",
+				"ibtk/src/lagrangian/FEProjector.cpp"
+			],
+			[
+				"ibamr_",
+				"include/ibamr/ibamr_enums.h"
+			],
+			[
+				"enum",
+				"ibtk/include/ibtk/ibtk_enums.h"
+			],
+			[
+				"ibfeme",
+				"src/IB/IBFEMethod.cpp"
+			],
+			[
+				"feexp",
+				"src/IB/FEMechanicsExplicitIntegrator.cpp"
+			],
+			[
+				"feproje",
+				"ibtk/include/ibtk/FEProjector.h"
+			],
+			[
+				"feprojector",
+				"ibtk/src/lagrangian/FEProjector.cpp"
+			],
+			[
+				"mechanics",
+				"examples/fe_mechanics/ex0/example.cpp"
+			],
+			[
+				"feprojector.",
+				"ibtk/src/lagrangian/FEProjector.cpp"
+			],
+			[
+				"project",
+				"ibtk/include/ibtk/FEProjector.h"
+			],
+			[
+				"mechanics/input3d",
+				"examples/fe_mechanics/ex0/input3d"
+			],
+			[
+				"mechanics/ex0/input",
+				"examples/fe_mechanics/ex0/input2d"
+			],
+			[
+				"fedatamang",
+				"ibtk/src/lagrangian/FEDataManager.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 225.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
