@@ -179,34 +179,8 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "main.cpp",
-			"settings":
-			{
-				"buffer_size": 13085,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "input3d.N=128",
-			"settings":
-			{
-				"buffer_size": 7799,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "generate_carpet.m",
-			"settings":
-			{
-				"buffer_size": 2651,
-				"line_ending": "Unix"
-			}
-		}
 	],
-	"build_system": "",
+	"build_system": "main3d",
 	"build_system_choices":
 	[
 		[
@@ -235,6 +209,34 @@
 			[
 				"IBAMR",
 				"j8"
+			]
+		],
+		[
+			[
+				[
+					"main3d",
+					""
+				],
+				[
+					"main3d",
+					"j8"
+				],
+				[
+					"main3d",
+					"clean"
+				],
+				[
+					"main3d",
+					"examples"
+				],
+				[
+					"main3d",
+					"examples j8"
+				]
+			],
+			[
+				"main3d",
+				""
 			]
 		]
 	],
@@ -413,8 +415,18 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/boyceg/code/redbud"
+	],
 	"file_history":
 	[
+		"/Users/boyceg/code/redbud/generate_carpet.m",
+		"/Users/boyceg/code/redbud/input3d.N=128",
+		"/Users/boyceg/code/IBAMR/include/ibamr/IBHierarchyIntegrator.h",
+		"/Users/boyceg/code/IBAMR/include/ibamr/AdvDiffHierarchyIntegrator.h",
+		"/Users/boyceg/code/redbud/main.cpp",
+		"/Users/boyceg/code/redbud/redbud.sublime-project",
 		"/Users/boyceg/code/IBAMR/src/IB/FEMechanicsBase.cpp",
 		"/Users/boyceg/code/IBAMR/src/IB/IBFEMethod.cpp",
 		"/Users/boyceg/code/IBAMR/src/IB/FEMechanicsExplicitIntegrator.cpp",
@@ -490,7 +502,6 @@
 		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/CCPoissonLevelRelaxationFACOperator.cpp",
 		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/PoissonFACPreconditionerStrategy.cpp",
 		"/Users/boyceg/code/IBAMR/ibtk/src/lagrangian/LDataManager.cpp",
-		"/Users/boyceg/code/IBAMR/include/ibamr/IBHierarchyIntegrator.h",
 		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/SCPoissonPointRelaxationFACOperator.cpp",
 		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/CCPoissonPointRelaxationFACOperator.cpp",
 		"/Users/boyceg/code/IBAMR/ibtk/src/solvers/impls/FACPreconditioner.cpp",
@@ -537,12 +548,7 @@
 		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/linear_solver.h",
 		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/libmesh/libmesh.h",
 		"/Users/boyceg/sfw/libmesh/darwin-clang-dbg/include/timpi/communicator.h",
-		"/Users/boyceg/code/IBAMR/include/ibamr/INSStaggeredHierarchyIntegrator.h",
-		"/Users/boyceg/code/IBAMR/include/ibamr/INSHierarchyIntegrator.h",
-		"/Users/boyceg/code/IBAMR/tests/IBFE/interpolate_velocity_01.cpp",
-		"/Users/boyceg/code/IBAMR/ibtk/include/ibtk/ibtk_utilities.h",
-		"/Users/boyceg/code/IBAMR/ibtk/contrib/eigen/unsupported/Eigen/src/BVH/KdBVH.h",
-		"/Users/boyceg/code/LV-phantom/FSI_model/main.cpp"
+		"/Users/boyceg/code/IBAMR/include/ibamr/INSStaggeredHierarchyIntegrator.h"
 	],
 	"find":
 	{
@@ -560,6 +566,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"SOLVER",
+			"solver_type",
 			"NULL"
 		],
 		"highlight": true,
@@ -579,333 +587,13 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "main.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13085,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4916,
-								4916
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1345.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "input3d.N=128",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7799,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4995,
-								4995
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3274.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 2,
-					"file": "generate_carpet.m",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2651,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/Matlab/Matlab.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -963,11 +651,11 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "IBAMR",
+	"pinned_build_system": "main3d",
 	"project": "redbud.sublime-project",
 	"replace":
 	{
-		"height": 92.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -976,6 +664,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"in",
+				"input3d.N=128"
+			],
 			[
 				"femecha",
 				"src/IB/FEMechanicsBase.cpp"
@@ -1483,10 +1175,6 @@
 			[
 				"mechanics/ex0/input",
 				"examples/fe_mechanics/ex0/input2d"
-			],
-			[
-				"fedatamang",
-				"ibtk/src/lagrangian/FEDataManager.cpp"
 			]
 		],
 		"width": 0.0
@@ -1509,7 +1197,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

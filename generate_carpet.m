@@ -34,7 +34,7 @@ anchor_fid = fopen(['carpet_' num2str(N) '.anchor'], 'w');
 fprintf(vertex_fid, '%d\n', n_posts * n_ib_post);
 fprintf(spring_fid, '%d\n', n_posts * (n_ib_post - 1));
 fprintf(beam_fid, '%d\n', n_posts * (n_ib_post - 2));
-fprintf(anchor_fid, '%d\n', n_posts);
+fprintf(anchor_fid, '%d\n', 2 * n_posts);
 
 for p = 0:n_posts-1
 
@@ -57,6 +57,7 @@ for p = 0:n_posts-1
 
   % anchor points:
   fprintf(anchor_fid, '%6d\n', p*n_ib_post);
+  fprintf(anchor_fid, '%6d\n', p*n_ib_post + 1);
 end
 
 fclose(vertex_fid);
