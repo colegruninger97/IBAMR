@@ -6,10 +6,10 @@ ASPECT_RATIO_X = 1.0;     % ratio of computational domain length and characteris
 ASPECT_RATIO_Y = 1.0;     % ratio of computational domain width  and characteristic linear dimension (dimensionless)
 ASPECT_RATIO_Z = 0.25;    % ratio of computational domain height and characteristic linear dimension (dimensionless)
 
-post_density = 100000.0;  % posts per unit area (cm^{-2})
-post_height = 0.005;      % post height (cm)
-post_r0 = 0.0002;         % radius of unstressed rod (cm)
-E = 1.0e4;                % elastic modulus (dyne cm^{-2}) [random choice!]
+post_density = 1.0e5;     % posts per unit area (cm^{-2})
+post_height = 5.0e-3;     % post height (cm)
+post_r0 = 2.0e-4;         % radius of unstressed rod (cm)
+E = 5.6e-3;               % elastic modulus (dyne cm^{-2}) [based on email from Karelyn Kremer dated 2021.01.28]
 A = pi*post_r0^2;         % cross-sectional area (cm^2)
 I = 0.25*pi*post_r0^4;    % second moment of area (cm^4)
 kappa_s = E*A;            % spring stiffness (dyne)

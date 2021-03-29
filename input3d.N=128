@@ -6,6 +6,7 @@ ASPECT_RATIO_Z = 0.25                          // ratio of computational domain 
 MU  = 0.01                                     // fluid dynamic viscosity (P)
 RHO = 1.0                                      // fluid mass density (gm cm^{-3})
 D = 0.0001                                     // diffusion coefficient (cm^2 s^{-1})
+ROTATIONAL_FREQUENCY = 1.0 / 0.006             // rotations per second (s^{-1})
 
 // grid spacing parameters
 MAX_LEVELS = 4                                 // maximum number of levels in locally refined grid
@@ -16,25 +17,25 @@ DX_FINEST = L/NFINEST
 
 // solver parameters
 DELTA_FUNCTION      = "BSPLINE_3"
-START_TIME          = 0.0e0                    // initial simulation time
-END_TIME            = 2.4e0                    // final simulation time
-GROW_DT             = 2.0e0                    // growth factor for timesteps
+START_TIME          = 0.0e0                    // initial simulation time (s)
+END_TIME            = 1.0e0                    // final simulation time (s)
+GROW_DT             = 2.0e0                    // growth factor for timesteps (dimensionless)
 NUM_CYCLES          = 1                        // number of cycles of fixed-point iteration
 CONVECTIVE_TS_TYPE  = "ADAMS_BASHFORTH"        // convective time stepping type
 CONVECTIVE_OP_TYPE  = "PPM"                    // convective differencing discretization type
 CONVECTIVE_FORM     = "ADVECTIVE"              // how to compute the convective terms
 NORMALIZE_PRESSURE  = TRUE                     // whether to explicitly force the pressure to have mean zero
-CFL_MAX             = 0.2                      // maximum CFL number
-DT                  = 5.0e-2*DX_FINEST         // maximum timestep size
+CFL_MAX             = 0.2                      // maximum CFL number (dimensionless)
+DT_MAX              = ROT_FREQUENCY/32.0       // maximum timestep size ensure 32 time steps per oscillation (s)
 ERROR_ON_DT_CHANGE  = FALSE                    // whether to emit an error message if the time step size changes
 VORTICITY_TAGGING   = FALSE                    // whether to tag cells for refinement based on vorticity thresholds
 TAG_BUFFER          = 1                        // size of tag buffer used by grid generation algorithm
-REGRID_CFL_INTERVAL = 0.5                      // regrid whenever any material point could have moved 0.5 meshwidths since previous regrid
+REGRID_CFL_INTERVAL = 0.5                      // regrid whenever any material point could have moved 0.5 meshwidths since previous regrid (dimensionless)
 OUTPUT_U            = TRUE
 OUTPUT_P            = TRUE
 OUTPUT_F            = FALSE
 OUTPUT_OMEGA        = TRUE
-OUTPUT_DIV_U        = TRUE
+OUTPUT_DIV_U        = FALSE
 ENABLE_LOGGING      = TRUE
 
 ADV_DIFF_SOLVER_TYPE        = "SEMI_IMPLICIT"   // the advection-diffusion solver to use (GODUNOV or SEMI_IMPLICIT)
@@ -158,7 +159,7 @@ IBHierarchyIntegrator {
    grow_dt             = GROW_DT
    num_cycles          = NUM_CYCLES
    regrid_cfl_interval = REGRID_CFL_INTERVAL
-   dt_max              = DT
+   dt_max              = DT_MAX
    error_on_dt_change  = ERROR_ON_DT_CHANGE
    tag_buffer          = TAG_BUFFER
    enable_logging      = ENABLE_LOGGING
@@ -188,7 +189,7 @@ INSStaggeredHierarchyIntegrator {
    convective_difference_form    = CONVECTIVE_FORM
    normalize_pressure            = NORMALIZE_PRESSURE
    cfl                           = CFL_MAX
-   dt_max                        = DT
+   dt_max                        = DT_MAX
    using_vorticity_tagging       = VORTICITY_TAGGING
    vorticity_rel_thresh          = 0.25,0.125
    tag_buffer                    = TAG_BUFFER
@@ -206,7 +207,7 @@ AdvDiffGodunovHierarchyIntegrator {
    grow_dt                    = GROW_DT
    convective_difference_form = ADV_DIFF_CONVECTIVE_FORM
    cfl                        = CFL_MAX
-   dt_max                     = DT
+   dt_max                     = DT_MAX
    tag_buffer                 = TAG_BUFFER
 // regrid_interval            = REGRID_INTERVAL
    enable_logging             = ENABLE_LOGGING
@@ -235,7 +236,7 @@ AdvDiffSemiImplicitHierarchyIntegrator {
    convective_op_type            = ADV_DIFF_CONVECTIVE_OP_TYPE
    convective_difference_form    = ADV_DIFF_CONVECTIVE_FORM
    cfl                           = CFL_MAX
-   dt_max                        = DT
+   dt_max                        = DT_MAX
    tag_buffer                    = TAG_BUFFER
 // regrid_interval               = REGRID_INTERVAL
    enable_logging                = ENABLE_LOGGING
