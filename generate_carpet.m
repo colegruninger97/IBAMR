@@ -17,8 +17,8 @@ kappa_b = E*I;            % bending stiffness (dyne cm^2)
 
 n_posts = ceil(post_density * (ASPECT_RATIO_X * L) * (ASPECT_RATIO_Y * L));
 
-N = 128;                  % number of grid cells on finest grid level
-h = L/N;                  % Cartesian grid spacing
+NFINEST = 128;            % number of grid cells on finest grid level
+h = L/NFINEST;            % Cartesian grid spacing
 
 n_ib_post = ceil(0.75 * post_height / h);  % number of IB points per post
 n_ib = n_ib_post * n_posts;                % total number of IB points
@@ -26,10 +26,10 @@ dX = post_height / (n_ib_post-1);          % IB point spacing along the post
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-vertex_fid = fopen(['carpet_' num2str(N) '.vertex'], 'w');
-spring_fid = fopen(['carpet_' num2str(N) '.spring'], 'w');
-beam_fid   = fopen(['carpet_' num2str(N) '.beam']  , 'w');
-anchor_fid = fopen(['carpet_' num2str(N) '.anchor'], 'w');
+vertex_fid = fopen(['carpet_' num2str(NFINEST) '.vertex'], 'w');
+spring_fid = fopen(['carpet_' num2str(NFINEST) '.spring'], 'w');
+beam_fid   = fopen(['carpet_' num2str(NFINEST) '.beam']  , 'w');
+anchor_fid = fopen(['carpet_' num2str(NFINEST) '.anchor'], 'w');
 
 fprintf(vertex_fid, '%d\n', n_posts * n_ib_post);
 fprintf(spring_fid, '%d\n', n_posts * (n_ib_post - 1));
