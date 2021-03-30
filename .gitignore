@@ -12,3 +12,4 @@ restart*
 *.spring
 *.beam
 *.anchor
+*.sublime-workspace

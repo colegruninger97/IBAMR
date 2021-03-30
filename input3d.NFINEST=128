@@ -5,8 +5,9 @@ ASPECT_RATIO_Y = 1.0                           // ratio of computational domain 
 ASPECT_RATIO_Z = 0.25                          // ratio of computational domain height and characteristic linear dimension (dimensionless)
 MU  = 0.01                                     // fluid dynamic viscosity (P)
 RHO = 1.0                                      // fluid mass density (gm cm^{-3})
-D = 0.0001                                     // diffusion coefficient (cm^2 s^{-1})
+D = 1.0e-3                                     // diffusion coefficient (cm^2 s^{-1}) [chosen arbitrarily!!!!]
 ROT_FREQUENCY = 1.0 / 0.006                    // rotations per second (s^{-1}) [based on email from Karelyn Kremer dated 2021.01.28]
+POST_FORCE = 1.0e-5                            // force on each point of each post (dyne) [chosen arbitrarily!!!!]
 
 // grid spacing parameters
 MAX_LEVELS = 4                                 // maximum number of levels in locally refined grid
@@ -26,7 +27,7 @@ CONVECTIVE_OP_TYPE  = "PPM"                    // convective differencing discre
 CONVECTIVE_FORM     = "ADVECTIVE"              // how to compute the convective terms
 NORMALIZE_PRESSURE  = TRUE                     // whether to explicitly force the pressure to have mean zero
 CFL_MAX             = 0.2                      // maximum CFL number (dimensionless)
-DT_MAX              = 1.0/(ROT_FREQUENCY*32.0) // maximum timestep size ensure 32 time steps per oscillation (s)
+DT_MAX              = 1.0/(ROT_FREQUENCY*64.0) // maximum timestep size ensure 64 time steps per oscillation (s)
 ERROR_ON_DT_CHANGE  = FALSE                    // whether to emit an error message if the time step size changes
 VORTICITY_TAGGING   = FALSE                    // whether to tag cells for refinement based on vorticity thresholds
 TAG_BUFFER          = 1                        // size of tag buffer used by grid generation algorithm
@@ -249,7 +250,7 @@ Main {
 
 // visualization dump parameters
    viz_writer                  = "VisIt","Silo"
-   viz_dump_interval           = NFINEST/2
+   viz_dump_interval           = 4
    viz_dump_dirname            = "viz_IB3d"
    visit_number_procs_per_file = 1
 

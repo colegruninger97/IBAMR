@@ -214,6 +214,10 @@ main(int argc, char* argv[])
             adv_diff_integrator->setPhysicalBcCoef(Q_var, Q_bc_coefs.get());
         }
 
+        // Get information on body forcing.
+        const double rot_frequency = input_db->getDouble("ROT_FREQUENCY");
+        const double post_force = input_db->getDouble("POST_FORCE");
+
         // Initialize hierarchy configuration and data on all patches.
         time_integrator->initializePatchHierarchy(patch_hierarchy, gridding_algorithm);
 
@@ -256,6 +260,13 @@ main(int argc, char* argv[])
             pout << "+++++++++++++++++++++++++++++++++++++++++++++++++++\n";
             pout << "At beginning of timestep # " << iteration_num << "\n";
             pout << "Simulation time is " << loop_time << "\n";
+
+            IBTK::Vector F;
+            F(0) = post_force * cos(loop_time * rot_frequency * 2.0 * M_PI);
+            F(1) = post_force * sin(loop_time * rot_frequency * 2.0 * M_PI);
+            F(2) = 0.0;
+            pout << F << "\n";
+            ib_force_fcn->setUniformBodyForce(F, /*structure_id*/ 0, patch_hierarchy->getFinestLevelNumber());
 
             dt = time_integrator->getMaximumTimeStepSize();
             time_integrator->advanceHierarchy(dt);
