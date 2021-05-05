@@ -77,6 +77,10 @@ main(int argc, char* argv[])
         const bool dump_timer_data = app_initializer->dumpTimerData();
         const int timer_dump_interval = app_initializer->getTimerDumpInterval();
 
+        // Determine whether to include an dye concentration field.
+        const bool simulate_dye_concentration_field =
+            input_db->getBoolWithDefault("SIMULATE_DYE_CONCENTRATION_FIELD", false);
+
         // Create major algorithm and data objects that comprise the
         // application.  These objects are configured from the input database
         // and, if this is a restarted run, from the restart database.
@@ -84,29 +88,32 @@ main(int argc, char* argv[])
             "INSStaggeredHierarchyIntegrator",
             app_initializer->getComponentDatabase("INSStaggeredHierarchyIntegrator"));
         Pointer<AdvDiffHierarchyIntegrator> adv_diff_integrator;
-        const string adv_diff_solver_type = input_db->getStringWithDefault("ADV_DIFF_SOLVER_TYPE", "SEMI_IMPLICIT");
-        if (adv_diff_solver_type == "GODUNOV")
+        if (simulate_dye_concentration_field)
         {
-            Pointer<AdvectorExplicitPredictorPatchOps> predictor = new AdvectorExplicitPredictorPatchOps(
-                "AdvectorExplicitPredictorPatchOps",
-                app_initializer->getComponentDatabase("AdvectorExplicitPredictorPatchOps"));
-            adv_diff_integrator = new AdvDiffPredictorCorrectorHierarchyIntegrator(
-                "AdvDiffPredictorCorrectorHierarchyIntegrator",
-                app_initializer->getComponentDatabase("AdvDiffPredictorCorrectorHierarchyIntegrator"),
-                predictor);
+            const string adv_diff_solver_type = input_db->getStringWithDefault("ADV_DIFF_SOLVER_TYPE", "SEMI_IMPLICIT");
+            if (adv_diff_solver_type == "GODUNOV")
+            {
+                Pointer<AdvectorExplicitPredictorPatchOps> predictor = new AdvectorExplicitPredictorPatchOps(
+                    "AdvectorExplicitPredictorPatchOps",
+                    app_initializer->getComponentDatabase("AdvectorExplicitPredictorPatchOps"));
+                adv_diff_integrator = new AdvDiffPredictorCorrectorHierarchyIntegrator(
+                    "AdvDiffPredictorCorrectorHierarchyIntegrator",
+                    app_initializer->getComponentDatabase("AdvDiffPredictorCorrectorHierarchyIntegrator"),
+                    predictor);
+            }
+            else if (adv_diff_solver_type == "SEMI_IMPLICIT")
+            {
+                adv_diff_integrator = new AdvDiffSemiImplicitHierarchyIntegrator(
+                    "AdvDiffSemiImplicitHierarchyIntegrator",
+                    app_initializer->getComponentDatabase("AdvDiffSemiImplicitHierarchyIntegrator"));
+            }
+            else
+            {
+                TBOX_ERROR("Unsupported solver type: " << adv_diff_solver_type << "\n"
+                                                       << "Valid options are: GODUNOV, SEMI_IMPLICIT");
+            }
+            navier_stokes_integrator->registerAdvDiffHierarchyIntegrator(adv_diff_integrator);
         }
-        else if (adv_diff_solver_type == "SEMI_IMPLICIT")
-        {
-            adv_diff_integrator = new AdvDiffSemiImplicitHierarchyIntegrator(
-                "AdvDiffSemiImplicitHierarchyIntegrator",
-                app_initializer->getComponentDatabase("AdvDiffSemiImplicitHierarchyIntegrator"));
-        }
-        else
-        {
-            TBOX_ERROR("Unsupported solver type: " << adv_diff_solver_type << "\n"
-                                                   << "Valid options are: GODUNOV, SEMI_IMPLICIT");
-        }
-        navier_stokes_integrator->registerAdvDiffHierarchyIntegrator(adv_diff_integrator);
         Pointer<IBMethod> ib_method_ops = new IBMethod("IBMethod", app_initializer->getComponentDatabase("IBMethod"));
         Pointer<IBHierarchyIntegrator> time_integrator =
             new IBExplicitHierarchyIntegrator("IBHierarchyIntegrator",
@@ -194,24 +201,27 @@ main(int argc, char* argv[])
             ib_method_ops->registerLSiloDataWriter(silo_data_writer);
         }
 
-        // Setup the advected and diffused quantity.
-        Pointer<CellVariable<NDIM, double> > Q_var = new CellVariable<NDIM, double>("Q");
-        adv_diff_integrator->registerTransportedQuantity(Q_var);
-        adv_diff_integrator->setDiffusionCoefficient(Q_var, input_db->getDouble("D"));
-        if (input_db->keyExists("ConcentrationInitialConditions"))
+        if (simulate_dye_concentration_field)
         {
-            Pointer<CartGridFunction> Q_init = new muParserCartGridFunction(
-                "Q_init", app_initializer->getComponentDatabase("ConcentrationInitialConditions"), grid_geometry);
-            adv_diff_integrator->setInitialConditions(Q_var, Q_init);
-        }
-        Pointer<FaceVariable<NDIM, double> > u_adv_var = navier_stokes_integrator->getAdvectionVelocityVariable();
-        adv_diff_integrator->setAdvectionVelocity(Q_var, u_adv_var);
-        std::unique_ptr<RobinBcCoefStrategy<NDIM> > Q_bc_coefs = nullptr;
-        if (periodic_shift.min() == 0)
-        {
-            Q_bc_coefs.reset(new muParserRobinBcCoefs(
-                "Q_bc_coefs", app_initializer->getComponentDatabase("ConcentrationBcCoefs"), grid_geometry));
-            adv_diff_integrator->setPhysicalBcCoef(Q_var, Q_bc_coefs.get());
+            // Setup the advected and diffused quantity.
+            Pointer<CellVariable<NDIM, double> > Q_var = new CellVariable<NDIM, double>("Q");
+            adv_diff_integrator->registerTransportedQuantity(Q_var);
+            adv_diff_integrator->setDiffusionCoefficient(Q_var, input_db->getDouble("D"));
+            if (input_db->keyExists("ConcentrationInitialConditions"))
+            {
+                Pointer<CartGridFunction> Q_init = new muParserCartGridFunction(
+                    "Q_init", app_initializer->getComponentDatabase("ConcentrationInitialConditions"), grid_geometry);
+                adv_diff_integrator->setInitialConditions(Q_var, Q_init);
+            }
+            Pointer<FaceVariable<NDIM, double> > u_adv_var = navier_stokes_integrator->getAdvectionVelocityVariable();
+            adv_diff_integrator->setAdvectionVelocity(Q_var, u_adv_var);
+            std::unique_ptr<RobinBcCoefStrategy<NDIM> > Q_bc_coefs = nullptr;
+            if (periodic_shift.min() == 0)
+            {
+                Q_bc_coefs.reset(new muParserRobinBcCoefs(
+                    "Q_bc_coefs", app_initializer->getComponentDatabase("ConcentrationBcCoefs"), grid_geometry));
+                adv_diff_integrator->setPhysicalBcCoef(Q_var, Q_bc_coefs.get());
+            }
         }
 
         // Get information on body forcing.
