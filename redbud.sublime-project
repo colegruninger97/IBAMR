@@ -44,6 +44,21 @@
     {
         "LSP":
         {
+            "clangd":
+            {
+                "command":
+                [
+                    "/usr/local/opt/llvm/bin/clangd",
+                    "--background-index",
+                    "--clang-tidy",
+                    "--clang-tidy-checks=bugprone-*,-bugprone-bool-pointer-implicit-conversion,clang-analyzer*,google-readability-casting,misc-redundant-expression,misc-unused-paramters,misc-unused-*,misc-uniqueptr-reset-release,modernize-*,-modernize-use-trailing-return-type,performance-*,readability-*,-readability-braces-around-statements,-readability-function-cognitive-complexity,-readability-implicit-bool-conversion,-readability-isolate-declaration,-readability-magic-numbers,-readability-redundant-control-flow",
+                    "--completion-parse=auto",
+                    "--completion-style=detailed",
+                    "--header-insertion=iwyu",
+                    "--pch-storage=memory",
+                ],
+                "enabled": true
+            }
         },
         "compile_commands": "${project_path}",
         "indent_to_bracket": true,
