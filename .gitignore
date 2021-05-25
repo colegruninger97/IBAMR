@@ -8,6 +8,7 @@ viz*
 .*.swp
 .DS_Store
 restart*
+compile_flags.txt
 *.vertex
 *.spring
 *.beam
