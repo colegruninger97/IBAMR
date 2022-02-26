@@ -16,6 +16,7 @@
 #include <ibamr/IBExplicitHierarchyIntegrator.h>
 #include <ibamr/IBMethod.h>
 #include <ibamr/IBStandardForceGen.h>
+#include <ibamr/IBTargetPointForceSpec.h>
 #include <ibamr/IBStandardInitializer.h>
 #include <ibamr/INSCollocatedHierarchyIntegrator.h>
 #include <ibamr/INSStaggeredHierarchyIntegrator.h>
@@ -30,6 +31,8 @@
 
 // Set up application namespace declarations
 #include <ibamr/app_namespaces.h>
+#include <iostream>
+#include <fstream>
 
 /*******************************************************************************
  * For each run, the input filename and restart information (if needed) must   *
@@ -42,6 +45,75 @@
  *    executable <input file name> <restart directory> <restart number>        *
  *                                                                             *
  *******************************************************************************/
+
+
+void print_eul_data(Pointer<PatchHierarchy<NDIM> > hierarchy, LDataManager* l_data_manager);
+
+// NOTE: These values are read in below from the input file. The values listed here are the default values.
+static int post_struct_id = 0; // post structure ID number [NOTE: This assumes that the post structures are the first to
+                               // be listed in the input file]
+static double post_length = 6.0e-3;                   // post length [cm]
+static double post_deflection_radius = 2.95e-3;       // maximum post deflection [cm]
+static double post_rotational_frequency = 1.0 / .006; // post rotational frequency [1/s]
+
+void
+update_target_points(const Pointer<PatchHierarchy<NDIM> >& hierarchy,
+                     const LDataManager* const l_data_manager,
+                     const double current_time,
+                     const double dt)
+{
+    const int finest_ln = hierarchy->getFinestLevelNumber();
+    const std ::pair<int, int>& post_lag_idxs =
+        l_data_manager->getLagrangianStructureIndexRange(post_struct_id, finest_ln);
+    Pointer<LMesh> mesh = l_data_manager->getLMesh(finest_ln);
+
+    // BEG comment: I think this might be overkill --- I think we can get away with only updating the local nodes.
+    // However, I also think there is no harm in updating the ghost nodes here as well.  So, let's just update
+    // everything for now because we just want this to work, and it shouldn't be that much more expensive.
+    const std::vector<LNode*>& local_nodes = mesh->getLocalNodes();
+    const std::vector<LNode*>& ghost_nodes = mesh->getGhostNodes();
+    std::vector<LNode*> all_nodes = local_nodes;
+    all_nodes.reserve(local_nodes.size() + ghost_nodes.size());
+    all_nodes.insert(all_nodes.end(), ghost_nodes.begin(), ghost_nodes.end());
+    for (auto* node : all_nodes)
+    {
+        auto* force_spec = node->getNodeDataItem<IBTargetPointForceSpec>();
+        if (!force_spec) continue;
+        const int lag_idx = node->getLagrangianIndex();
+        Point& X_target = force_spec->getTargetPointPosition();
+        if (post_lag_idxs.first <= lag_idx && lag_idx < post_lag_idxs.second)
+        {
+            // We are using the z component of the targeted position to figure out where we are on the post. This
+            // fundamentally assumes that the posts are anchored at z=0.  If the posts are anchored at z != 0, then that
+            // needs to be taken into account here.
+            //
+            // This works because we DO NOT change the value of X[2]!
+            //
+            // Also note that if the post is not initialized in the "leaning" configuration, then these forces will act
+            // to "stretch" out the posts.  We could try to account for that here, but it is simplest to initialize the
+            // post configuration (in the .vertex file) in the leaning configuration consistent with this forcing.
+            double h = X_target[2];
+            if (h > sqrt(std::numeric_limits<double>::epsilon()))
+            {
+                // The "slanted post height" is the maximum z value in the slanted configuration. It is determined from
+                // the post length and the prescribed deflection radius.
+                //
+                // Notice that we do not pre-compute this value above because doing so would make it harder to read in
+                // user defined post lengths & deflection radii.
+                double slanted_post_height =
+                    sqrt(post_length * post_length - post_deflection_radius * post_deflection_radius);
+                double deflection = post_deflection_radius * h / slanted_post_height;
+                double previous_time = current_time - dt;
+                X_target[0] = X_target[0] - deflection * cos(2.0 * M_PI * previous_time * post_rotational_frequency) + deflection * cos(2.0 * M_PI * current_time * post_rotational_frequency);
+                X_target[1] = X_target[1] - deflection * sin(2.0 * M_PI * previous_time * post_rotational_frequency) + deflection * sin(2.0 * M_PI * current_time * post_rotational_frequency);
+
+            }
+        }
+    }
+}
+
+
+
 int
 main(int argc, char* argv[])
 {
@@ -258,6 +330,13 @@ main(int argc, char* argv[])
             silo_data_writer->writePlotData(iteration_num, loop_time);
         }
 
+        // Create Text File which Stores the locations of each IB point
+
+        ofstream fout("Coordinates.txt",ios::out);
+
+
+
+
         // Main time step loop.
         double loop_time_end = time_integrator->getEndTime();
         double dt = 0.0;
@@ -271,15 +350,20 @@ main(int argc, char* argv[])
             pout << "At beginning of timestep # " << iteration_num << "\n";
             pout << "Simulation time is " << loop_time << "\n";
 
-            IBTK::Vector F;
-            F(0) = post_force * cos(loop_time * rot_frequency * 2.0 * M_PI);
-            F(1) = post_force * sin(loop_time * rot_frequency * 2.0 * M_PI);
-            F(2) = 0.0;
-            pout << F << "\n";
-            ib_force_fcn->setUniformBodyForce(F, /*structure_id*/ 0, patch_hierarchy->getFinestLevelNumber());
+            #if 0
+                        IBTK::Vector F;
+                        F(0) = post_force * cos(loop_time * rot_frequency * 2.0 * M_PI);
+                        F(1) = post_force * sin(loop_time * rot_frequency * 2.0 * M_PI);
+                        F(2) = 0.0;
+                        pout << F << "\n";
+                        ib_force_fcn->setUniformBodyForce(F, /*structure_id*/ 0, patch_hierarchy->getFinestLevelNumber());
+            #else
+                        update_target_points(patch_hierarchy, ib_method_ops->getLDataManager(), loop_time, dt);
+            #endif
 
             dt = time_integrator->getMaximumTimeStepSize();
             time_integrator->advanceHierarchy(dt);
+            print_eul_data(patch_hierarchy, ib_method_ops->getLDataManager());
             loop_time += dt;
 
             pout << "\n";
@@ -287,6 +371,28 @@ main(int argc, char* argv[])
             pout << "Simulation time is " << loop_time << "\n";
             pout << "+++++++++++++++++++++++++++++++++++++++++++++++++++\n";
             pout << "\n";
+
+            ofstream fout("Coordinates.txt",ios::app);
+
+            const int finest_ln = patch_hierarchy->getFinestLevelNumber();
+            Pointer<LData> X_data = ib_method_ops->getLDataManager()->getLData("X",finest_ln);
+            Vec X_vec = X_data->getVec();
+            double* x_vals;
+            int ierr = VecGetArray(X_vec, &x_vals);
+            IBTK_CHKERRQ(ierr);
+            Pointer<LMesh> l_mesh = ib_method_ops->getLDataManager()->getLMesh(finest_ln);
+            const std::vector<LNode*>& local_nodes = l_mesh->getLocalNodes();
+            for (const auto& node : local_nodes)
+                {
+                    const int lag_idx = node->getLagrangianIndex();
+                    const int petsc_idx = node ->getLocalPETScIndex();
+                    Eigen::Map<Vector3d> X(&x_vals[petsc_idx*NDIM]);
+                    fout.unsetf(ios_base::showpos);
+                    fout.setf(ios_base::scientific);
+                    fout.precision(5);
+                    fout << loop_time << "," << X(0) <<","<< X(1) << "," << X(2) <<"\n";
+                }
+
 
             // At specified intervals, write visualization and restart files,
             // print out timer data, and store hierarchy data for post
@@ -321,3 +427,24 @@ main(int argc, char* argv[])
 
     } // cleanup dynamically allocated objects prior to shutdown
 } // main
+
+void print_eul_data(Pointer<PatchHierarchy<NDIM>> hierarchy, LDataManager* l_data_manager)
+{
+    const int finest_ln = hierarchy->getFinestLevelNumber();
+    Pointer<LData> X_data = l_data_manager->getLData("X",finest_ln);
+    Vec X_vec = X_data->getVec();
+    double* x_vals;
+    int ierr = VecGetArray(X_vec, &x_vals);
+    IBTK_CHKERRQ(ierr);
+    Pointer<LMesh> l_mesh = l_data_manager->getLMesh(finest_ln);
+    const std::vector<LNode*>& local_nodes = l_mesh->getLocalNodes();
+    for (const auto& node : local_nodes)
+    {
+        const int lag_idx = node->getLagrangianIndex();
+        const int petsc_idx = node ->getLocalPETScIndex();
+        Eigen::Map<Vector3d> X(&x_vals[petsc_idx*NDIM]);
+        pout << "Eulerian Location of node" << lag_idx << "\n";
+        pout << X <<"\n";
+    }
+    return;
+}

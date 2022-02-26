@@ -4,65 +4,43 @@
 L = 0.08;                 % computational domain linear dimension (cm)
 ASPECT_RATIO_X = 1.0;     % ratio of computational domain length and characteristic linear dimension (dimensionless)
 ASPECT_RATIO_Y = 1.0;     % ratio of computational domain width  and characteristic linear dimension (dimensionless)
-ASPECT_RATIO_Z = 0.25;    % ratio of computational domain height and characteristic linear dimension (dimensionless)
+ASPECT_RATIO_Z = 0.025;    % ratio of computational domain height and characteristic linear dimension (dimensionless)
 
-post_density = 1.0e5;     % posts per unit area (cm^{-2})
-post_height = 5.0e-3;     % post height (cm)
-post_r0 = 2.0e-4;         % radius of unstressed rod (cm)
-E = 5.6e-3;               % elastic modulus (dyne cm^{-2}) [based on email from Karelyn Kremer dated 2021.01.28]
-A = pi*post_r0^2;         % cross-sectional area (cm^2)
-I = 0.25*pi*post_r0^4;    % second moment of area (cm^4)
-kappa_s = E*A;            % spring stiffness (dyne)
-kappa_b = E*I;            % bending stiffness (dyne cm^2)
+post_density = 7.0e4;     % posts per unit area (cm^{-2}) (updated Jun 30 2021)
+post_length = 6.0e-3;
+post_deflection_radius = 2.95e-3; %(cm)
+slanted_post_height = sqrt(post_length^2 - post_deflection_radius^2);% post height (cm) (updated Jun 30 2021)
 
-n_posts = ceil(post_density * (ASPECT_RATIO_X * L) * (ASPECT_RATIO_Y * L));
+
+n_posts = 1; %Just one post for visualization purposes
 
 NFINEST = 128;            % number of grid cells on finest grid level
 h = L/NFINEST;            % Cartesian grid spacing
 
-n_ib_post = ceil(0.75 * post_height / h);  % number of IB points per post
+n_ib_post = 30;  % number of IB points per post
 n_ib = n_ib_post * n_posts;                % total number of IB points
-dX = post_height / (n_ib_post-1);          % IB point spacing along the post
+dX = post_length / (n_ib_post-1);          % IB point spacing along the post
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 vertex_fid = fopen(['carpet_' num2str(NFINEST) '.vertex'], 'w');
-spring_fid = fopen(['carpet_' num2str(NFINEST) '.spring'], 'w');
-beam_fid   = fopen(['carpet_' num2str(NFINEST) '.beam']  , 'w');
-anchor_fid = fopen(['carpet_' num2str(NFINEST) '.anchor'], 'w');
+
 
 fprintf(vertex_fid, '%d\n', n_posts * n_ib_post);
-fprintf(spring_fid, '%d\n', n_posts * (n_ib_post - 1));
-fprintf(beam_fid, '%d\n', n_posts * (n_ib_post - 2));
-fprintf(anchor_fid, '%d\n', 2 * n_posts);
+
 
 for p = 0:n_posts-1
 
   % vertices:
-  X(1) = rand() * ASPECT_RATIO_X * L;
-  X(2) = rand() * ASPECT_RATIO_Y * L;
+  X(1) = 0.08/2;
+X(2) = 0.08/2; %(x,y) coordinates which place the cilium in the center of the domain
   for l = 0:n_ib_post-1
-    fprintf(vertex_fid, '%1.16e %1.16e %1.16e\n', X(1), X(2), l*dX);
+     fprintf(vertex_fid, '%1.16e %1.16e %1.16e\n', (post_deflection_radius/post_length)*(l*dX) + X(1), X(2), (slanted_post_height/post_length)*(l*dX));
   end
 
-  % springs:
-  for l = 0:n_ib_post-2
-    fprintf(spring_fid, '%6d %6d %1.16e %1.16e\n', p*n_ib_post + l, p*n_ib_post + l + 1, kappa_s/dX, dX);
-  end
-
-  % beams:
-  for l = 0:n_ib_post-3
-    fprintf(beam_fid, '%6d %6d %6d %1.16e\n', p*n_ib_post + l, p*n_ib_post + l + 1, p*n_ib_post + l + 2, kappa_b/dX^3);
-  end
-
-  % anchor points:
-  fprintf(anchor_fid, '%6d\n', p*n_ib_post);
-  fprintf(anchor_fid, '%6d\n', p*n_ib_post + 1);
 end
 
 fclose(vertex_fid);
-fclose(spring_fid);
-fclose(beam_fid);
-fclose(anchor_fid);
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

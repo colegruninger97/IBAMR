@@ -6,8 +6,8 @@ ASPECT_RATIO_Z = 0.25                          // ratio of computational domain 
 MU  = 0.01                                     // fluid dynamic viscosity (P)
 RHO = 1.0                                      // fluid mass density (gm cm^{-3})
 D = 1.0e-3                                     // diffusion coefficient (cm^2 s^{-1}) [chosen arbitrarily!!!!]
-ROT_FREQUENCY = 1.0 / 0.006                    // rotations per second (s^{-1}) [based on email from Karelyn Kremer dated 2021.01.28]
-POST_FORCE = 1.0e-5                            // force on each point of each post (dyne) [chosen arbitrarily!!!!]
+ROT_FREQUENCY = 1.0/0.006                    // rotations per second (s^{-1}) [based on email from Karelyn Kremer dated 2021.01.28]
+POST_FORCE = 0.029e-5                            // force on each point of each post (dyne) [from Email with Boyce and Katelyn]
 
 // grid spacing parameters
 MAX_LEVELS = 3                                 // maximum number of levels in locally refined grid
@@ -175,13 +175,12 @@ IBMethod {
 
 IBStandardInitializer {
    max_levels      = MAX_LEVELS
-   structure_names = "carpet_128" , "particles_128"
-   carpet_128 {
+   structure_names = "carpet_512"
+   carpet_512 {
       level_number = MAX_LEVELS - 1
+      uniform_target_stiffness = 15
    }
-   particles_128 {
-      level_number = MAX_LEVELS - 1
-   }
+
 }
 
 INSStaggeredHierarchyIntegrator {
@@ -254,9 +253,9 @@ GriddingAlgorithm {
    }
    efficiency_tolerance = 0.8e0  // min % of tag cells in new patch level
    combine_efficiency   = 0.8e0  // chop box if sum of volumes of smaller boxes < efficiency * vol of large box
-   //allow_patches_smaller_than_ghostwidth = TRUE
+   allow_patches_smaller_than_ghostwidth = TRUE
    allow_patches_smaller_than_minimum_size_to_prevent_overlaps = TRUE
-   //extend_tags_to_bdry = TRUE
+   extend_tags_to_bdry = TRUE
 }
 
 StandardTagAndInitialize {
